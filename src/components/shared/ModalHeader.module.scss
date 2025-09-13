@@ -1,0 +1,43 @@
+
+.headerSection {
+  background: linear-gradient(135deg, var(--mantine-color-blue-0) 0%, var(--mantine-color-blue-1) 100%);
+  border: 1px solid var(--mantine-color-blue-2);
+  border-radius: 8px;
+}
+
+.title {
+  color: var(--mantine-color-blue-7);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.statusBadge {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.closeButton {
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: var(--mantine-color-gray-1);
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 768px) {
+  .headerSection {
+    padding: 1rem !important;
+  }
+}
+
+[data-mantine-color-scheme="dark"] {
+  .headerSection {
+    background: linear-gradient(135deg, var(--mantine-color-blue-9) 0%, var(--mantine-color-blue-8) 100%);
+    border-color: var(--mantine-color-blue-7);
+  }
+  
+  .title {
+    color: var(--mantine-color-blue-3);
+  }
+}

@@ -1,0 +1,20 @@
+.content {
+  padding: 2rem 0;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.detailSection {
+  background: var(--mantine-color-white);
+  border-radius: var(--mantine-radius-md);
+  padding: 2rem;
+  box-shadow: var(--mantine-shadow-sm);
+  border: 1px solid var(--mantine-color-gray-2);
+}
+
+.loadingContainer {
+  padding: 3rem 0;
+}

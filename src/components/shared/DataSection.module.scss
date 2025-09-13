@@ -1,0 +1,14 @@
+
+@use '../../styles/shared.scss' as shared;
+
+.sectionTitle {
+  @include shared.section-title;
+}
+
+.infoCard {
+  @include shared.info-card;
+}
+
+.currency {
+  @include shared.currency-text;
+}

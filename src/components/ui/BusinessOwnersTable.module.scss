@@ -1,0 +1,59 @@
+@use '../../styles/shared.scss' as shared;
+
+.tableContainer {
+  @include shared.table-container;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  
+
+  th, td {
+    padding: 0.75rem 1rem;
+    
+    @media (max-width: 768px) {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+    
+
+    &:nth-child(1) { min-width: 200px; }
+    &:nth-child(2) { min-width: 120px; }
+  }
+}
+
+.tableHead {
+  background-color: var(--mantine-color-gray-0);
+  
+  [data-mantine-color-scheme="dark"] & {
+    background-color: var(--mantine-color-dark-6);
+  }
+}
+
+.tableRow {
+  &:hover {
+    background-color: var(--mantine-color-gray-0);
+    
+    [data-mantine-color-scheme="dark"] & {
+      background-color: var(--mantine-color-dark-6);
+    }
+  }
+}
+
+.loadingContainer {
+  @include shared.loading-container;
+}
+
+.emptyState {
+  @include shared.empty-state;
+}
+
+.companyName {
+  font-weight: var(--mantine-font-weight-medium);
+  color: var(--mantine-color-blue-6);
+}
+
+.actionButton {
+  @include shared.action-button-hover;
+}

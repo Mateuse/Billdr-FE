@@ -1,0 +1,95 @@
+
+@use '../../styles/shared.scss' as shared;
+
+.pageContainer {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.content {
+  @include shared.page-container;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem 0;
+  }
+}
+
+.pageHeader {
+  @include shared.page-header;
+  padding: 0 1rem;
+  
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+}
+
+.pageTitle {
+  @include shared.page-title;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.createButton {
+  @include shared.action-button;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.tableSection {
+  padding: 0 1rem;
+}
+
+.loadingContainer {
+  @include shared.loading-container;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  padding: 4rem 2rem;
+}
+
+.errorContainer {
+  padding: 2rem;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+@media (max-width: 1200px) {
+  .content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageHeader {
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tableSection {
+    padding: 0;
+  }
+  
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+}

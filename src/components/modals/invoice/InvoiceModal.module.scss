@@ -1,0 +1,138 @@
+
+.modalContent {
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+  border-bottom: 1px solid var(--mantine-color-gray-2);
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  margin-bottom: 0;
+}
+
+.modalBody {
+  padding: 1.5rem;
+}
+
+.headerSection {
+  background: linear-gradient(135deg, var(--mantine-color-blue-0) 0%, var(--mantine-color-blue-1) 100%);
+  border: 1px solid var(--mantine-color-blue-2);
+  border-radius: 8px;
+}
+
+.invoiceNumber {
+  color: var(--mantine-color-blue-7);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.statusBadge {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.closeButton {
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: var(--mantine-color-gray-1);
+    transform: scale(1.05);
+  }
+}
+
+.sectionTitle {
+  color: var(--mantine-color-gray-7);
+  margin-bottom: 0.5rem;
+}
+
+.infoCard {
+  border: 1px solid var(--mantine-color-gray-2);
+  border-radius: 8px;
+  background-color: var(--mantine-color-gray-0);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: var(--mantine-color-blue-3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.amount {
+  color: var(--mantine-color-green-7);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.amountPaid {
+  color: var(--mantine-color-blue-7);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.partyCard {
+  border: 1px solid var(--mantine-color-gray-2);
+  border-radius: 8px;
+  background-color: var(--mantine-color-white);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: var(--mantine-color-blue-3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+  
+  .modalHeader {
+    padding: 1rem;
+  }
+  
+  .modalBody {
+    padding: 1rem;
+  }
+  
+  .headerSection {
+    padding: 1rem !important;
+  }
+  
+  .infoCard,
+  .partyCard {
+    padding: 1rem !important;
+  }
+}
+
+[data-mantine-color-scheme="dark"] {
+  .headerSection {
+    background: linear-gradient(135deg, var(--mantine-color-blue-9) 0%, var(--mantine-color-blue-8) 100%);
+    border-color: var(--mantine-color-blue-7);
+  }
+  
+  .invoiceNumber {
+    color: var(--mantine-color-blue-3);
+  }
+  
+  .infoCard {
+    background-color: var(--mantine-color-dark-6);
+    border-color: var(--mantine-color-dark-4);
+    
+    &:hover {
+      border-color: var(--mantine-color-blue-6);
+    }
+  }
+  
+  .partyCard {
+    background-color: var(--mantine-color-dark-7);
+    border-color: var(--mantine-color-dark-4);
+    
+    &:hover {
+      border-color: var(--mantine-color-blue-6);
+    }
+  }
+  
+  .sectionTitle {
+    color: var(--mantine-color-gray-3);
+  }
+}

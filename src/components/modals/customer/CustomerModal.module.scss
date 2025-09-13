@@ -1,0 +1,4 @@
+
+@use '../../../styles/shared.scss' as shared;
+
+@include shared.modal-layout(var(--mantine-color-green-0));

@@ -1,0 +1,110 @@
+@use '../../styles/shared.scss' as shared;
+
+.tableContainer {
+  @include shared.table-container;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  
+
+  @media (max-width: 768px) {
+    min-width: 800px;
+  }
+  
+
+  th, td {
+    white-space: nowrap;
+    padding: 0.75rem 1rem;
+    
+    @media (max-width: 768px) {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+    
+
+    &:nth-child(1) { 
+      min-width: 80px; 
+      max-width: 100px;
+      word-break: break-word;
+      white-space: normal;
+    }
+    &:nth-child(2) { min-width: 140px; }
+    &:nth-child(3) { min-width: 140px; }
+    &:nth-child(4) { min-width: 100px; }
+    &:nth-child(5) { min-width: 100px; }
+    &:nth-child(6) { min-width: 110px; }
+    &:nth-child(7) { min-width: 110px; }
+    &:nth-child(8) { min-width: 90px;  }
+    &:nth-child(9) { min-width: 120px; }
+  }
+}
+
+.tableHead {
+  background-color: var(--mantine-color-gray-0);
+  
+  [data-mantine-color-scheme="dark"] & {
+    background-color: var(--mantine-color-dark-6);
+  }
+}
+
+.tableRow {
+  &:hover {
+    background-color: var(--mantine-color-gray-0);
+    
+    [data-mantine-color-scheme="dark"] & {
+      background-color: var(--mantine-color-dark-6);
+    }
+  }
+}
+
+.clickableRow {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  
+  &:hover {
+    background-color: var(--mantine-color-blue-0);
+    
+    [data-mantine-color-scheme="dark"] & {
+      background-color: var(--mantine-color-dark-5);
+    }
+  }
+  
+  &:active {
+    background-color: var(--mantine-color-blue-1);
+    
+    [data-mantine-color-scheme="dark"] & {
+      background-color: var(--mantine-color-dark-4);
+    }
+  }
+}
+
+.loadingContainer {
+  @include shared.loading-container;
+}
+
+.emptyState {
+  @include shared.empty-state;
+}
+
+.invoiceNumber {
+  font-weight: var(--mantine-font-weight-medium);
+  color: var(--mantine-color-blue-6);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    line-height: 1.1;
+  }
+}
+
+.amount {
+  font-family: var(--mantine-font-family-mono);
+  font-weight: var(--mantine-font-weight-semibold);
+}
+
+.actionButton {
+  @include shared.action-button-hover;
+}

@@ -1,0 +1,6 @@
+
+@use '../../styles/shared.scss' as shared;
+
+.sectionTitle {
+  @include shared.section-title;
+}
