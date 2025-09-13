@@ -43,9 +43,9 @@ export default function CustomerDetailPage() {
   const router = useRouter();
   const customerId = Array.isArray(params.id) ? params.id[0] : params.id;
   
-  const { data: customer, isLoading, error } = useCustomer(customerId);
+  const { data: customer, isLoading, error } = useCustomer(customerId!);
   const { data: invoices = [], isLoading: invoicesLoading, error: invoicesError } = useInvoices();
-  const { data: transactions, isLoading: transactionsLoading, error: transactionsError } = useCustomerPaymentHistory(customerId);
+  const { data: transactions, isLoading: transactionsLoading, error: transactionsError } = useCustomerPaymentHistory(customerId!);
 
   const handleGoBack = () => {
     router.back();
@@ -81,7 +81,7 @@ export default function CustomerDetailPage() {
     return (
       <Container size={SIZES.XL} className={classes.content}>
         <Alert color={COLORS.DANGER} title={UI_TEXT.ERROR_TITLE}>
-          {error?.message || ERROR_MESSAGES.CUSTOMER_NOT_FOUND}
+          {error?.message || 'Customer not found'}
         </Alert>
       </Container>
     );

@@ -5,11 +5,11 @@ import { mockInvoice } from '../../../../__tests__/utils/test-utils'
 
 // Mock DataSection component
 jest.mock('../../../shared/DataSection', () => ({
-  DataSection: ({ title, fields, icon }: any) => (
+  DataSection: ({ title, fields, icon }: { title: string; fields: { key: string; label: string; value: string; type?: string; color?: string }[]; icon?: React.ReactNode }) => (
     <div data-testid="data-section">
       <h3>{title}</h3>
       {icon && <span data-testid="section-icon">{icon}</span>}
-      {fields.map((field: any) => (
+      {fields.map((field: { key: string; label: string; value: string; type?: string; color?: string }) => (
         <div key={field.key} data-testid={`field-${field.key}`}>
           <span data-testid={`label-${field.key}`}>{field.label}:</span>
           <span

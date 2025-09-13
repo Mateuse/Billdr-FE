@@ -16,7 +16,7 @@ import {
   Button,
 } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
-import { IconArrowLeft, IconFileText, IconCreditCard, IconLink, IconCopy } from '@tabler/icons-react';
+import { IconArrowLeft, IconFileText, IconCreditCard, IconLink } from '@tabler/icons-react';
 import { useInvoice, useInvoicePaymentHistory } from '../../../hooks/useInvoices';
 import { usePaymentSuccess } from '../../../hooks/usePayments';
 import { 
@@ -35,7 +35,7 @@ import { InvoiceDetailsSection } from '../../../components/modals/invoice/Invoic
 import { InvoicePartiesSection } from '../../../components/modals/invoice/InvoicePartiesSection';
 import { PaymentHistoryTable } from '../../../components/ui/PaymentHistoryTable';
 import { PaymentModal } from '../../../components/payments/PaymentModal';
-import { copyPaymentLinkToClipboard, canInvoiceAcceptPayment } from '../../../utils/paymentLinks';
+import { copyPaymentLinkToClipboard } from '../../../utils/paymentLinks';
 import classes from './page.module.scss';
 
 export default function InvoiceDetailPage() {

@@ -1,11 +1,10 @@
 "use client";
 
 import { useRouter } from 'next/navigation';
-import { Container, Title, Text, Button, Group, Box } from "@mantine/core";
-import { IconPlus } from "@tabler/icons-react";
+import { Container, Title, Text, Group, Box } from "@mantine/core";
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
-import { SIZES, ICON_SIZES, COLORS } from "../../constants/ui";
+import { SIZES, COLORS } from "../../constants/ui";
 import { useInvoices, useDeleteInvoice } from "../../hooks/useInvoices";
 import { InvoicesTable } from "../../components/ui/InvoicesTable";
 import {

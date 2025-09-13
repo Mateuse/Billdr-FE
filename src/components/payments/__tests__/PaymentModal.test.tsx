@@ -21,7 +21,7 @@ jest.mock('@stripe/stripe-js', () => ({
 
 // Mock PaymentContent component
 jest.mock('../PaymentContent', () => ({
-  PaymentContent: ({ onPaymentSuccess, onPaymentError, onCreatePaymentIntent }: any) => (
+  PaymentContent: ({ onPaymentSuccess, onPaymentError, onCreatePaymentIntent }: { onPaymentSuccess: () => void; onPaymentError: (error: string) => void; onCreatePaymentIntent: () => void }) => (
     <div data-testid="payment-content">
       <button onClick={onCreatePaymentIntent}>Create Payment Intent</button>
       <button onClick={onPaymentSuccess}>Payment Success</button>

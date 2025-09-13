@@ -18,7 +18,7 @@ describe('invoices API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockInvoicesResponse),
-      } as any)
+      } as unknown as Response)
 
       const result = await getInvoices()
 
@@ -31,7 +31,7 @@ describe('invoices API', () => {
     it('handles fetch error', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
-      } as any)
+      } as unknown as Response)
 
       await expect(getInvoices()).rejects.toThrow(
         'Failed to load invoices'
@@ -48,7 +48,7 @@ describe('invoices API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockSingleInvoiceResponse),
-      } as any)
+      } as unknown as Response)
 
       const result = await getInvoice('invoice-123')
 
@@ -61,7 +61,7 @@ describe('invoices API', () => {
     it('handles fetch error for single invoice', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
-      } as any)
+      } as unknown as Response)
 
       await expect(getInvoice('invoice-123')).rejects.toThrow(
         'Failed to load invoices'
@@ -91,7 +91,7 @@ describe('invoices API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockCreateResponse),
-      } as any)
+      } as unknown as Response)
 
       const result = await createInvoice(createRequest)
 
@@ -113,7 +113,7 @@ describe('invoices API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         json: jest.fn().mockResolvedValueOnce(errorResponse),
-      } as any)
+      } as unknown as Response)
 
       await expect(createInvoice(createRequest)).rejects.toThrow(
         'Failed to create invoice'
@@ -134,7 +134,7 @@ describe('invoices API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockUpdateResponse),
-      } as any)
+      } as unknown as Response)
 
       const result = await updateInvoice('invoice-123', updateRequest)
 
@@ -155,7 +155,7 @@ describe('invoices API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         json: jest.fn().mockResolvedValueOnce({ message: 'Update failed' }),
-      } as any)
+      } as unknown as Response)
 
       await expect(updateInvoice('invoice-123', updateRequest)).rejects.toThrow(
         'Failed to update invoice'
@@ -167,7 +167,7 @@ describe('invoices API', () => {
     it('deletes invoice successfully', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
-      } as any)
+      } as unknown as Response)
 
       await deleteInvoice('invoice-123')
 
@@ -182,7 +182,7 @@ describe('invoices API', () => {
     it('handles delete error', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
-      } as any)
+      } as unknown as Response)
 
       await expect(deleteInvoice('invoice-123')).rejects.toThrow(
         'Failed to delete invoice'
