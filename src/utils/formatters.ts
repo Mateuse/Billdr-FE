@@ -26,12 +26,10 @@ export const getStatusColor = (status: InvoiceStatus): string => {
     draft: STATUS_COLORS.DRAFT,
     sent: STATUS_COLORS.SENT,
     paid: STATUS_COLORS.PAID,
-    partial: STATUS_COLORS.SENT, // Use SENT color for partial payments
-    refunded: STATUS_COLORS.CANCELLED, // Use CANCELLED color for refunded
+    partial: STATUS_COLORS.SENT,
+    refunded: STATUS_COLORS.CANCELLED,
     overdue: STATUS_COLORS.OVERDUE,
     cancelled: STATUS_COLORS.CANCELLED,
-    partial: COLORS.WARNING,
-    refunded: COLORS.PRIMARY,
   };
   return statusColors[status] || STATUS_COLORS.DRAFT;
 };
