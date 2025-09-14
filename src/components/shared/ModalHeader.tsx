@@ -1,21 +1,16 @@
 'use client';
 
-import { 
-  Text, 
-  Badge, 
-  Group, 
-  Stack, 
-  Paper,
-  ActionIcon,
-  Tooltip
+import {
+  Text,
+  Badge,
+  Group,
+  Stack,
+  Paper
 } from '@mantine/core';
-import { IconX } from '@tabler/icons-react';
-import { 
-  COLORS, 
-  VARIANTS, 
-  SIZES, 
-  FONT_WEIGHTS, 
-  ICON_SIZES
+import {
+  VARIANTS,
+  SIZES,
+  FONT_WEIGHTS
 } from '../../constants/ui';
 import classes from './ModalHeader.module.scss';
 

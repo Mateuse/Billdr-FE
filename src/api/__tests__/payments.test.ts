@@ -4,6 +4,12 @@ import { mockPaymentTransaction } from '../../__tests__/utils/test-utils'
 // Mock global fetch
 const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>
 
+// Type for mock Response
+interface MockResponse {
+  ok: boolean
+  json?: jest.MockedFunction<() => Promise<unknown>>
+}
+
 describe('payments API', () => {
   beforeEach(() => {
     jest.clearAllMocks()
@@ -23,7 +29,7 @@ describe('payments API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockResponse),
-      } as any)
+      } as MockResponse)
 
       const result = await createPaymentIntent('invoice-123')
 
@@ -44,7 +50,7 @@ describe('payments API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockResponse),
-      } as any)
+      } as MockResponse)
 
       await createPaymentIntent('invoice-123', {
         customer_email: 'test@example.com',
@@ -71,7 +77,7 @@ describe('payments API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         json: jest.fn().mockResolvedValueOnce(errorResponse),
-      } as any)
+      } as MockResponse)
 
       await expect(createPaymentIntent('invoice-123')).rejects.toThrow(
         'Payment intent creation failed'
@@ -82,7 +88,7 @@ describe('payments API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         json: jest.fn().mockRejectedValueOnce(new Error('Network error')),
-      } as any)
+      } as MockResponse)
 
       await expect(createPaymentIntent('invoice-123')).rejects.toThrow(
         'Failed to create payment intent'
@@ -105,7 +111,7 @@ describe('payments API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockRefundResponse),
-      } as any)
+      } as MockResponse)
 
       const result = await refundPayment('pi_test_123')
 
@@ -127,7 +133,7 @@ describe('payments API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
         json: jest.fn().mockResolvedValueOnce(errorResponse),
-      } as any)
+      } as MockResponse)
 
       await expect(refundPayment('pi_test_123')).rejects.toThrow('Refund failed')
     })
@@ -142,7 +148,7 @@ describe('payments API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockPaymentHistoryResponse),
-      } as any)
+      } as MockResponse)
 
       const result = await getAllPaymentHistory()
 
@@ -155,7 +161,7 @@ describe('payments API', () => {
     it('handles fetch error', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
-      } as any)
+      } as MockResponse)
 
       await expect(getAllPaymentHistory()).rejects.toThrow(
         'Failed to load payment history'
@@ -172,7 +178,7 @@ describe('payments API', () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
         json: jest.fn().mockResolvedValueOnce(mockSinglePaymentResponse),
-      } as any)
+      } as MockResponse)
 
       const result = await getPaymentHistoryById('payment-123')
 
@@ -185,7 +191,7 @@ describe('payments API', () => {
     it('handles fetch error for single payment', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
-      } as any)
+      } as MockResponse)
 
       await expect(getPaymentHistoryById('payment-123')).rejects.toThrow(
         'Failed to load payment history'

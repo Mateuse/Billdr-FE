@@ -1,6 +1,4 @@
 
-
-import React from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { notifications } from '@mantine/notifications';
 import { createPaymentIntent, refundPayment, getAllPaymentHistory, getPaymentHistoryById } from '../api/payments';

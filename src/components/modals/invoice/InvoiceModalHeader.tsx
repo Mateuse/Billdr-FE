@@ -1,10 +1,9 @@
 'use client';
 
 import { Invoice } from '../../../types/invoice';
-import { 
-  MODAL_TEXT,
+import {
   TABLE_HEADERS,
-  INVOICE_STATUSES 
+  INVOICE_STATUSES
 } from '../../../constants/messages';
 import { getStatusColor } from '../../../utils/formatters';
 import { ModalHeader, StatusConfig } from '../../shared/ModalHeader';

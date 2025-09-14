@@ -1,11 +1,10 @@
 'use client';
 
 import React from 'react';
-import { 
-  Modal, 
-  Stack, 
-  Divider, 
-  Grid,
+import {
+  Modal,
+  Stack,
+  Divider,
   Group,
   Title
 } from '@mantine/core';

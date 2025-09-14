@@ -8,10 +8,9 @@ import {
   Title
 } from '@mantine/core';
 import { ReactNode } from 'react';
-import { 
-  SIZES, 
-  FONT_WEIGHTS, 
-  ICON_SIZES
+import {
+  SIZES,
+  FONT_WEIGHTS
 } from '../../constants/ui';
 import { CURRENCIES, LOCALES, CURRENCY_FORMAT_OPTIONS, FIELD_TYPES } from '../../constants/formatting';
 import { formatDate } from '../../utils/formatters';

@@ -19,9 +19,16 @@ jest.mock('@stripe/stripe-js', () => ({
   loadStripe: jest.fn(() => Promise.resolve({})),
 }))
 
+// Types for PaymentContent props
+interface PaymentContentProps {
+  onPaymentSuccess: () => void
+  onPaymentError: (error: string) => void
+  onCreatePaymentIntent: () => void
+}
+
 // Mock PaymentContent component
 jest.mock('../PaymentContent', () => ({
-  PaymentContent: ({ onPaymentSuccess, onPaymentError, onCreatePaymentIntent }: any) => (
+  PaymentContent: ({ onPaymentSuccess, onPaymentError, onCreatePaymentIntent }: PaymentContentProps) => (
     <div data-testid="payment-content">
       <button onClick={onCreatePaymentIntent}>Create Payment Intent</button>
       <button onClick={onPaymentSuccess}>Payment Success</button>

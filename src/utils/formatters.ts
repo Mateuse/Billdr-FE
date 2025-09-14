@@ -1,7 +1,7 @@
 
 
 import { LOCALES, CURRENCIES, CURRENCY_FORMAT_OPTIONS, DATE_FORMAT_OPTIONS } from '../constants/formatting';
-import { STATUS_COLORS } from '../constants/ui';
+import { STATUS_COLORS, COLORS } from '../constants/ui';
 import { InvoiceStatus } from '../types/invoice';
 
 export const formatCurrency = (amount: number): string => {
@@ -28,6 +28,8 @@ export const getStatusColor = (status: InvoiceStatus): string => {
     paid: STATUS_COLORS.PAID,
     overdue: STATUS_COLORS.OVERDUE,
     cancelled: STATUS_COLORS.CANCELLED,
+    partial: COLORS.WARNING,
+    refunded: COLORS.PRIMARY,
   };
   return statusColors[status] || STATUS_COLORS.DRAFT;
 };

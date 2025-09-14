@@ -22,14 +22,13 @@ import {
   ICON_SIZES,
   COLORS
 } from '../../../constants/ui';
-import { 
+import {
   MODAL_TEXT,
   UI_TEXT,
   FORM_VALIDATION,
   SUCCESS_MESSAGES,
   ERROR_MESSAGES,
-  ERROR_MESSAGES_EXTENDED,
-  BASE_TEXT
+  ERROR_MESSAGES_EXTENDED
 } from '../../../constants/messages';
 import classes from './BusinessOwnerModal.module.scss';
 

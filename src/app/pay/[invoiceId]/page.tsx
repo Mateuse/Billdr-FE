@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { 
-  Container, 
-  Stack, 
+import {
+  Container,
+  Stack,
   Group,
   Title,
   LoadingOverlay,
   Alert,
-  Box,
   Paper,
   Text,
   Button,
@@ -41,12 +40,16 @@ export default function PaymentPage() {
   const { data: invoice, isLoading, error } = useInvoice(invoiceId!);
   const paymentSuccessMutation = usePaymentSuccess();
 
+  const canPay = invoice &&
+    invoice.status !== 'paid' &&
+    invoice.status !== 'cancelled' &&
+    (Number(invoice.total_amount) - Number(invoice.amount_paid)) > 0;
 
   useEffect(() => {
     if (invoice && canPay) {
       setPaymentModalOpen(true);
     }
-  }, [invoice]);
+  }, [invoice, canPay]);
 
   const handlePaymentSuccess = () => {
     paymentSuccessMutation.mutate(invoiceId!);
@@ -65,10 +68,6 @@ export default function PaymentPage() {
   };
 
 
-  const canPay = invoice && 
-    invoice.status !== 'paid' && 
-    invoice.status !== 'cancelled' && 
-    (Number(invoice.total_amount) - Number(invoice.amount_paid)) > 0;
 
   if (isLoading) {
     return (

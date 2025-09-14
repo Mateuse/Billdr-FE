@@ -18,7 +18,7 @@ import {
   ICON_SIZES,
   COLORS
 } from '../../constants/ui';
-import { TABLE_HEADERS, STAT_KEYS, STAT_TYPES, STAT_TYPE_CONFIGS, STAT_ICONS, STAT_COLORS, StatConfig, StatFormatType } from '../../constants/messages';
+import { STAT_TYPES, STAT_TYPE_CONFIGS, STAT_ICONS, StatFormatType } from '../../constants/messages';
 import { formatCurrency } from '../../utils/formatters';
 import classes from './StatsSection.module.scss';
 

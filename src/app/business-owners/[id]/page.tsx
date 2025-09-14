@@ -2,11 +2,10 @@
 
 import React, { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { 
-  Container, 
-  Stack, 
-  Divider, 
-  Grid,
+import {
+  Container,
+  Stack,
+  Divider,
   Group,
   Title,
   ActionIcon,

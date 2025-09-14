@@ -50,7 +50,6 @@ export const PartialPaymentControls: React.FC<PartialPaymentControlsProps> = ({
           min={PAYMENT_VALIDATION.MIN_AMOUNT}
           max={remainingAmount}
           step={0.01}
-          precision={2}
           leftSection={INPUT_PROPERTIES.CURRENCY_SYMBOL}
           rightSection={<span style={{ fontSize: '0.875rem', color: 'var(--mantine-color-gray-6)' }}>{invoice.currency || CURRENCIES.CAD}</span>}
           rightSectionWidth={50}

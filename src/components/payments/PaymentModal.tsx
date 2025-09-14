@@ -59,7 +59,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
     },
     enabled: shouldCreateIntent &&
              opened &&
-             paymentAttemptId &&
+             !!paymentAttemptId &&
              modalState === PAYMENT_FORM_STATE.INITIAL && (
       isPartialPayment ?
         (paymentAmount >= PAYMENT_VALIDATION.MIN_AMOUNT && paymentAmount <= remainingAmount) :

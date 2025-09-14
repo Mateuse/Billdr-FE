@@ -178,7 +178,6 @@ export const CreateInvoiceModal = ({
             disabled={createMutation.isPending}
             min={0.01}
             step={0.01}
-            precision={2}
             prefix="$"
             {...form.getInputProps(INVOICE_FIELDS.TOTAL_AMOUNT)}
           />

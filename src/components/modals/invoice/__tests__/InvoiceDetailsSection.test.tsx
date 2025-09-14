@@ -3,13 +3,34 @@ import { render, screen } from '../../../../__tests__/utils/test-utils'
 import { InvoiceDetailsSection } from '../InvoiceDetailsSection'
 import { mockInvoice } from '../../../../__tests__/utils/test-utils'
 
+// Types for mock component props
+interface DataSectionProps {
+  title: string
+  fields: Array<{
+    key: string
+    label: string
+    value: string | number
+    type?: string
+    color?: string
+  }>
+  icon?: React.ReactNode
+}
+
+interface FieldType {
+  key: string
+  label: string
+  value: string | number
+  type?: string
+  color?: string
+}
+
 // Mock DataSection component
 jest.mock('../../../shared/DataSection', () => ({
-  DataSection: ({ title, fields, icon }: any) => (
+  DataSection: ({ title, fields, icon }: DataSectionProps) => (
     <div data-testid="data-section">
       <h3>{title}</h3>
       {icon && <span data-testid="section-icon">{icon}</span>}
-      {fields.map((field: any) => (
+      {fields.map((field: FieldType) => (
         <div key={field.key} data-testid={`field-${field.key}`}>
           <span data-testid={`label-${field.key}`}>{field.label}:</span>
           <span

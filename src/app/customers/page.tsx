@@ -10,7 +10,6 @@ import { CustomersTable } from '../../components/ui/CustomersTable';
 import { CreateCustomerModal } from '../../components/modals/customer/CreateCustomerModal';
 import { useCustomers, useDeleteCustomer } from '../../hooks/useCustomers';
 import { Customer } from '../../types/customer';
-import { Invoice } from '../../types/invoice';
 import { 
   PAGE_TITLES, 
   UI_TEXT, 

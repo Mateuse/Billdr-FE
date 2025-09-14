@@ -15,13 +15,12 @@ import {
   LoadingOverlay,
 } from '@mantine/core';
 import { IconAlertCircle, IconCheck } from '@tabler/icons-react';
-import { 
+import {
   PAYMENT_FORM_STATE,
   type PaymentFormStateType,
   STRIPE_ELEMENT_OPTIONS,
   PAYMENT_INTENT_STATUS,
   STRIPE_ERROR_CODES,
-  STRIPE_REDIRECT_OPTIONS,
   ICON_SIZES,
   INPUT_PROPERTIES,
   PAYMENT_DISPLAY_TEXT,

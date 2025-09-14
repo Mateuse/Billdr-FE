@@ -10,7 +10,6 @@ import { BusinessOwnersTable } from '../../components/ui/BusinessOwnersTable';
 import { CreateBusinessOwnerModal } from '../../components/modals/businessOwner/CreateBusinessOwnerModal';
 import { useBusinessOwners, useDeleteBusinessOwner } from '../../hooks/useBusinessOwners';
 import { BusinessOwner } from '../../types/businessOwner';
-import { Invoice } from '../../types/invoice';
 import { 
   PAGE_TITLES, 
   UI_TEXT, 
