@@ -29,7 +29,7 @@ export const INVOICES_TABLE_CONFIG: TableConfig = {
     {
       key: TABLE_COLUMN_KEYS.INVOICE_NUMBER,
       type: CELL_TYPES.TEXT,
-      field: 'id',
+      field: 'invoice_number',
       textStyle: {
         weight: 'MEDIUM',
         className: TABLE_CSS_CLASSES.INVOICE_NUMBER
