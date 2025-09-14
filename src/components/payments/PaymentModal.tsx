@@ -57,14 +57,14 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
       console.log(CONSOLE_MESSAGES.CREATING_PAYMENT_INTENT, requestData);
       return createPaymentIntent(invoice.id, requestData);
     },
-    enabled: shouldCreateIntent &&
+    enabled: Boolean(shouldCreateIntent &&
              opened &&
              !!paymentAttemptId &&
              modalState === PAYMENT_FORM_STATE.INITIAL && (
       isPartialPayment ?
         (paymentAmount >= PAYMENT_VALIDATION.MIN_AMOUNT && paymentAmount <= remainingAmount) :
         true
-    ),
+    )),
     retry: false,
     staleTime: PAYMENT_TIMING.STALE_TIME_MS,
     refetchOnWindowFocus: false,

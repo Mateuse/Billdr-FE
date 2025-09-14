@@ -3,7 +3,6 @@
  * Centralizes all table column keys, headers, and cell type strings
  */
 
-// Column type constants used in tableRenderer
 export const CELL_TYPES = {
   TEXT: 'text',
   NUMBER: 'number',
