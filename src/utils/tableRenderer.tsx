@@ -13,13 +13,9 @@ import {
 import { formatCurrency, formatDate } from './formatters';
 
 
-export type CellType = 
-  | 'text' 
-  | 'number' 
-  | 'currency' 
-  | 'date' 
-  | 'badge' 
-  | 'actions';
+import { CellType, CELL_TYPES } from '../constants/tableStrings';
+
+export type { CellType };
 
 
 export interface TextStyle {
@@ -96,7 +92,7 @@ export const renderTableCell = <T = Record<string, unknown>>(
   };
 
   switch (column.type) {
-    case 'text':
+    case CELL_TYPES.TEXT:
       return (
         <Text
           size={column.textStyle?.size || SIZES.SM}
@@ -107,7 +103,7 @@ export const renderTableCell = <T = Record<string, unknown>>(
         </Text>
       );
 
-    case 'number':
+    case CELL_TYPES.NUMBER:
       return (
         <Text
           size={column.textStyle?.size || SIZES.SM}
@@ -118,7 +114,7 @@ export const renderTableCell = <T = Record<string, unknown>>(
         </Text>
       );
 
-    case 'currency':
+    case CELL_TYPES.CURRENCY:
       return (
         <Text
           size={column.textStyle?.size || SIZES.SM}
@@ -129,7 +125,7 @@ export const renderTableCell = <T = Record<string, unknown>>(
         </Text>
       );
 
-    case 'date':
+    case CELL_TYPES.DATE:
       return (
         <Text
           size={column.textStyle?.size || SIZES.SM}
@@ -140,7 +136,7 @@ export const renderTableCell = <T = Record<string, unknown>>(
         </Text>
       );
 
-    case 'badge':
+    case CELL_TYPES.BADGE:
       const badgeConfig = column.badgeConfig || {};
       const fieldStr = String(fieldValue || '');
       const badgeColor = badgeConfig.colorMapping?.[fieldStr] || COLORS.PRIMARY;
@@ -156,7 +152,7 @@ export const renderTableCell = <T = Record<string, unknown>>(
         </Badge>
       );
 
-    case 'actions':
+    case CELL_TYPES.ACTIONS:
       const actionConfig = column.actionConfig || {};
       
       return (

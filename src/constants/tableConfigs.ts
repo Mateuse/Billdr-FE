@@ -4,6 +4,7 @@ import { TableConfig } from '../utils/tableRenderer';
 import { BUSINESS_OWNER_FIELDS, CUSTOMER_FIELDS } from './fields';
 import { COLORS, STATUS_COLORS } from './ui';
 import { INVOICE_STATUSES } from './messages';
+import { CELL_TYPES, TABLE_COLUMN_KEYS, TABLE_CSS_CLASSES } from './tableStrings';
 
 
 export interface TableActionHandlers<T = Record<string, unknown>> {
@@ -26,69 +27,69 @@ const INVOICE_STATUS_COLORS = {
 export const INVOICES_TABLE_CONFIG: TableConfig = {
   columns: [
     {
-      key: 'invoice_number',
-      type: 'text',
+      key: TABLE_COLUMN_KEYS.INVOICE_NUMBER,
+      type: CELL_TYPES.TEXT,
       field: 'id',
       textStyle: {
         weight: 'MEDIUM',
-        className: 'invoiceNumber'
+        className: TABLE_CSS_CLASSES.INVOICE_NUMBER
       }
     },
     {
-      key: 'owner_name',
-      type: 'text',
-      field: 'owner_name',
+      key: TABLE_COLUMN_KEYS.OWNER_NAME,
+      type: CELL_TYPES.TEXT,
+      field: TABLE_COLUMN_KEYS.OWNER_NAME,
       textStyle: {
         size: 'XS'
       }
     },
     {
-      key: 'customer_name', 
-      type: 'text',
-      field: 'customer_name',
+      key: TABLE_COLUMN_KEYS.CUSTOMER_NAME,
+      type: CELL_TYPES.TEXT,
+      field: TABLE_COLUMN_KEYS.CUSTOMER_NAME,
       textStyle: {
         size: 'SM',
         weight: 'MEDIUM'
       }
     },
     {
-      key: 'amount',
-      type: 'currency',
+      key: TABLE_COLUMN_KEYS.AMOUNT,
+      type: CELL_TYPES.CURRENCY,
       field: 'total_amount',
       textStyle: {
         weight: 'SEMIBOLD',
-        className: 'amount'
+        className: TABLE_CSS_CLASSES.AMOUNT
       }
     },
     {
-      key: 'amount_paid',
-      type: 'currency', 
-      field: 'amount_paid',
+      key: TABLE_COLUMN_KEYS.AMOUNT_PAID,
+      type: CELL_TYPES.CURRENCY,
+      field: TABLE_COLUMN_KEYS.AMOUNT_PAID,
       textStyle: {
         weight: 'SEMIBOLD',
-        className: 'amount'
+        className: TABLE_CSS_CLASSES.AMOUNT
       }
     },
     {
-      key: 'issued_at',
-      type: 'date',
-      field: 'issued_at',
+      key: TABLE_COLUMN_KEYS.ISSUED_AT,
+      type: CELL_TYPES.DATE,
+      field: TABLE_COLUMN_KEYS.ISSUED_AT,
       textStyle: {
         size: 'SM'
       }
     },
     {
-      key: 'due_date',
-      type: 'date',
-      field: 'due_date', 
+      key: TABLE_COLUMN_KEYS.DUE_DATE,
+      type: CELL_TYPES.DATE,
+      field: TABLE_COLUMN_KEYS.DUE_DATE,
       textStyle: {
         size: 'SM'
       }
     },
     {
-      key: 'status',
-      type: 'badge',
-      field: 'status',
+      key: TABLE_COLUMN_KEYS.STATUS,
+      type: CELL_TYPES.BADGE,
+      field: TABLE_COLUMN_KEYS.STATUS,
       badgeConfig: {
         colorMapping: INVOICE_STATUS_COLORS,
         statusMapping: INVOICE_STATUSES,
@@ -96,8 +97,8 @@ export const INVOICES_TABLE_CONFIG: TableConfig = {
       }
     },
     {
-      key: 'actions',
-      type: 'actions',
+      key: TABLE_COLUMN_KEYS.ACTIONS,
+      type: CELL_TYPES.ACTIONS,
       actionConfig: {
         view: {
           show: true,
@@ -114,7 +115,7 @@ export const INVOICES_TABLE_CONFIG: TableConfig = {
       }
     }
   ],
-  actionClassName: 'actionButton'
+  actionClassName: TABLE_CSS_CLASSES.ACTION_BUTTON
 };
 
 
@@ -122,16 +123,16 @@ export const BUSINESS_OWNERS_TABLE_CONFIG: TableConfig = {
   columns: [
     {
       key: BUSINESS_OWNER_FIELDS.COMPANY_NAME,
-      type: 'text',
+      type: CELL_TYPES.TEXT,
       field: BUSINESS_OWNER_FIELDS.COMPANY_NAME,
       textStyle: {
         weight: 'MEDIUM',
-        className: 'companyName'
+        className: TABLE_CSS_CLASSES.COMPANY_NAME
       }
     },
     {
-      key: 'actions',
-      type: 'actions',
+      key: TABLE_COLUMN_KEYS.ACTIONS,
+      type: CELL_TYPES.ACTIONS,
       actionConfig: {
         view: {
           show: true,
@@ -148,7 +149,7 @@ export const BUSINESS_OWNERS_TABLE_CONFIG: TableConfig = {
       }
     }
   ],
-  actionClassName: 'actionButton'
+  actionClassName: TABLE_CSS_CLASSES.ACTION_BUTTON
 };
 
 
@@ -156,25 +157,25 @@ export const CUSTOMERS_TABLE_CONFIG: TableConfig = {
   columns: [
     {
       key: CUSTOMER_FIELDS.NAME,
-      type: 'text',
+      type: CELL_TYPES.TEXT,
       field: CUSTOMER_FIELDS.NAME,
       textStyle: {
         weight: 'MEDIUM',
-        className: 'customerName'
+        className: TABLE_CSS_CLASSES.CUSTOMER_NAME
       }
     },
     {
       key: CUSTOMER_FIELDS.EMAIL,
-      type: 'text',
+      type: CELL_TYPES.TEXT,
       field: CUSTOMER_FIELDS.EMAIL,
       textStyle: {
         size: 'SM',
-        className: 'customerEmail'
+        className: TABLE_CSS_CLASSES.CUSTOMER_EMAIL
       }
     },
     {
-      key: 'actions',
-      type: 'actions', 
+      key: TABLE_COLUMN_KEYS.ACTIONS,
+      type: CELL_TYPES.ACTIONS,
       actionConfig: {
         view: {
           show: true,
@@ -191,18 +192,17 @@ export const CUSTOMERS_TABLE_CONFIG: TableConfig = {
       }
     }
   ],
-  actionClassName: 'actionButton'
+  actionClassName: TABLE_CSS_CLASSES.ACTION_BUTTON
 };
 
 
 export const createInvoicesTableConfig = <T = Record<string, unknown>>(handlers: TableActionHandlers<T>) => ({
   ...INVOICES_TABLE_CONFIG,
-  columns: INVOICES_TABLE_CONFIG.columns.map(col => 
-    col.type === 'actions' ? {
+  columns: INVOICES_TABLE_CONFIG.columns.map(col =>
+    col.type === CELL_TYPES.ACTIONS ? {
       ...col,
       actionConfig: {
         view: { show: !!handlers.onView, handler: handlers.onView, color: COLORS.PRIMARY },
-        edit: { show: !!handlers.onEdit, handler: handlers.onEdit, color: COLORS.WARNING },
         delete: { show: !!handlers.onDelete, handler: handlers.onDelete, color: COLORS.DANGER }
       }
     } : col
@@ -211,8 +211,8 @@ export const createInvoicesTableConfig = <T = Record<string, unknown>>(handlers:
 
 export const createBusinessOwnersTableConfig = <T = Record<string, unknown>>(handlers: TableActionHandlers<T>) => ({
   ...BUSINESS_OWNERS_TABLE_CONFIG,
-  columns: BUSINESS_OWNERS_TABLE_CONFIG.columns.map(col => 
-    col.type === 'actions' ? {
+  columns: BUSINESS_OWNERS_TABLE_CONFIG.columns.map(col =>
+    col.type === CELL_TYPES.ACTIONS ? {
       ...col,
       actionConfig: {
         view: { show: !!handlers.onView, handler: handlers.onView, color: COLORS.PRIMARY },
@@ -224,8 +224,8 @@ export const createBusinessOwnersTableConfig = <T = Record<string, unknown>>(han
 
 export const createCustomersTableConfig = <T = Record<string, unknown>>(handlers: TableActionHandlers<T>) => ({
   ...CUSTOMERS_TABLE_CONFIG,
-  columns: CUSTOMERS_TABLE_CONFIG.columns.map(col => 
-    col.type === 'actions' ? {
+  columns: CUSTOMERS_TABLE_CONFIG.columns.map(col =>
+    col.type === CELL_TYPES.ACTIONS ? {
       ...col,
       actionConfig: {
         view: { show: !!handlers.onView, handler: handlers.onView, color: COLORS.PRIMARY },

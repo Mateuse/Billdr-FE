@@ -3,6 +3,7 @@ import { IconCurrencyDollar, IconCalendar, IconReceipt, IconUser, IconBuilding, 
 import { PaymentTransaction } from '../../types/invoice';
 import { SIZES, COLORS, ICON_SIZES } from '../../constants/ui';
 import { BASE_TEXT, ERROR_MESSAGES } from '../../constants/messages';
+import { PAYMENT_HISTORY_LABELS, PAYMENT_STATUS_TEXTS } from '../../constants/tableStrings';
 import { useRefundPayment } from '../../hooks/usePayments';
 import { useState } from 'react';
 
@@ -89,7 +90,7 @@ export function PaymentHistoryTable({
     },
     {
       key: 'customer_name',
-      label: 'Customer',
+      label: PAYMENT_HISTORY_LABELS.CUSTOMER,
       icon: <IconUser size={ICON_SIZES.SM} />,
       visible: showCustomer,
       render: (transaction) => (
@@ -100,7 +101,7 @@ export function PaymentHistoryTable({
     },
     {
       key: 'business_owner_name',
-      label: 'Business',
+      label: PAYMENT_HISTORY_LABELS.BUSINESS,
       icon: <IconBuilding size={ICON_SIZES.SM} />,
       visible: showBusinessOwner,
       render: (transaction) => (
@@ -111,7 +112,7 @@ export function PaymentHistoryTable({
     },
     {
       key: 'invoice_number',
-      label: 'Invoice',
+      label: PAYMENT_HISTORY_LABELS.INVOICE,
       icon: <IconFileText size={ICON_SIZES.SM} />,
       visible: showInvoice,
       render: (transaction) => (
@@ -135,15 +136,15 @@ export function PaymentHistoryTable({
             case 'succeeded':
               return { text: BASE_TEXT.COMPLETED, color: COLORS.SUCCESS, bgColor: 'var(--mantine-color-green-0)' };
             case 'requires_payment_method':
-              return { text: 'Requires Payment Method', color: 'red', bgColor: 'var(--mantine-color-red-0)' };
+              return { text: PAYMENT_STATUS_TEXTS.REQUIRES_PAYMENT_METHOD, color: 'red', bgColor: 'var(--mantine-color-red-0)' };
             case 'requires_confirmation':
-              return { text: 'Requires Confirmation', color: 'orange', bgColor: 'var(--mantine-color-orange-0)' };
+              return { text: PAYMENT_STATUS_TEXTS.REQUIRES_CONFIRMATION, color: 'orange', bgColor: 'var(--mantine-color-orange-0)' };
             case 'requires_action':
-              return { text: 'Requires Action', color: 'yellow', bgColor: 'var(--mantine-color-yellow-0)' };
+              return { text: PAYMENT_STATUS_TEXTS.REQUIRES_ACTION, color: 'yellow', bgColor: 'var(--mantine-color-yellow-0)' };
             case 'processing':
-              return { text: 'Processing', color: 'blue', bgColor: 'var(--mantine-color-blue-0)' };
+              return { text: PAYMENT_STATUS_TEXTS.PROCESSING, color: 'blue', bgColor: 'var(--mantine-color-blue-0)' };
             case 'canceled':
-              return { text: 'Canceled', color: 'gray', bgColor: 'var(--mantine-color-gray-0)' };
+              return { text: PAYMENT_STATUS_TEXTS.CANCELED, color: 'gray', bgColor: 'var(--mantine-color-gray-0)' };
             case 'refunded':
               return { text: BASE_TEXT.REFUNDED, color: 'orange', bgColor: 'var(--mantine-color-orange-0)' };
             default:

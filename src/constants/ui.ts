@@ -1,4 +1,5 @@
 import { BUSINESS_OWNER_FIELDS, CUSTOMER_FIELDS } from './fields';
+import { TABLE_COLUMN_KEYS } from './tableStrings';
 
 export const COLORS = {
   PRIMARY: 'blue',
@@ -106,23 +107,23 @@ export const MODAL_SIZES = {
 
 export const TABLE_COLUMNS = {
   INVOICES: [
-    { key: 'invoice_number', header: 'INVOICE_NUMBER', field: 'id' },
-    { key: 'owner_name', header: 'OWNER_NAME', field: 'owner_name' },
-    { key: 'customer_name', header: 'CUSTOMER_NAME', field: 'customer_name' },
-    { key: 'amount', header: 'AMOUNT', field: 'total_amount' },
-    { key: 'amount_paid', header: 'AMOUNT_PAID', field: 'amount_paid' },
-    { key: 'issued_at', header: 'ISSUED_AT', field: 'issued_at' },
-    { key: 'due_date', header: 'DUE_DATE', field: 'due_date' },
-    { key: 'status', header: 'STATUS', field: 'status' },
-    { key: 'actions', header: 'ACTIONS', field: null },
+    { key: TABLE_COLUMN_KEYS.INVOICE_NUMBER, header: 'INVOICE_NUMBER', field: 'id' },
+    { key: TABLE_COLUMN_KEYS.OWNER_NAME, header: 'OWNER_NAME', field: TABLE_COLUMN_KEYS.OWNER_NAME },
+    { key: TABLE_COLUMN_KEYS.CUSTOMER_NAME, header: 'CUSTOMER_NAME', field: TABLE_COLUMN_KEYS.CUSTOMER_NAME },
+    { key: TABLE_COLUMN_KEYS.AMOUNT, header: 'AMOUNT', field: 'total_amount' },
+    { key: TABLE_COLUMN_KEYS.AMOUNT_PAID, header: 'AMOUNT_PAID', field: TABLE_COLUMN_KEYS.AMOUNT_PAID },
+    { key: TABLE_COLUMN_KEYS.ISSUED_AT, header: 'ISSUED_AT', field: TABLE_COLUMN_KEYS.ISSUED_AT },
+    { key: TABLE_COLUMN_KEYS.DUE_DATE, header: 'DUE_DATE', field: TABLE_COLUMN_KEYS.DUE_DATE },
+    { key: TABLE_COLUMN_KEYS.STATUS, header: 'STATUS', field: TABLE_COLUMN_KEYS.STATUS },
+    { key: TABLE_COLUMN_KEYS.ACTIONS, header: 'ACTIONS', field: null },
   ],
   BUSINESS_OWNERS: [
     { key: BUSINESS_OWNER_FIELDS.COMPANY_NAME, header: 'COMPANY_NAME', field: BUSINESS_OWNER_FIELDS.COMPANY_NAME },
-    { key: 'actions', header: 'ACTIONS', field: null },
+    { key: TABLE_COLUMN_KEYS.ACTIONS, header: 'ACTIONS', field: null },
   ],
   CUSTOMERS: [
     { key: CUSTOMER_FIELDS.NAME, header: 'NAME', field: CUSTOMER_FIELDS.NAME },
     { key: CUSTOMER_FIELDS.EMAIL, header: 'EMAIL', field: CUSTOMER_FIELDS.EMAIL },
-    { key: 'actions', header: 'ACTIONS', field: null },
+    { key: TABLE_COLUMN_KEYS.ACTIONS, header: 'ACTIONS', field: null },
   ],
 };
