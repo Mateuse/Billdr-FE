@@ -21,7 +21,7 @@ export const InvoiceModalHeader = ({ invoice }: InvoiceModalHeaderProps) => {
 
   return (
     <ModalHeader
-      title={`#${invoice.id}`}
+      title={`#${invoice.invoice_number}`}
       subtitle={TABLE_HEADERS.INVOICE_NUMBER}
       status={status}
     />

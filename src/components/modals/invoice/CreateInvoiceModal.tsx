@@ -53,8 +53,8 @@ export const CreateInvoiceModal = ({
     initialValues: {
       [INVOICE_FIELDS.OWNER]: businessOwnerId,
       [INVOICE_FIELDS.CUSTOMER]: '',
-      [INVOICE_FIELDS.TOTAL_AMOUNT]: 0,
-      [INVOICE_FIELDS.DUE_DATE]: '',
+      [INVOICE_FIELDS.TOTAL_AMOUNT]: undefined!,
+      [INVOICE_FIELDS.DUE_DATE]: null!,
     },
     validate: {
       [INVOICE_FIELDS.CUSTOMER]: (value) => {
@@ -64,7 +64,7 @@ export const CreateInvoiceModal = ({
         return null;
       },
       [INVOICE_FIELDS.TOTAL_AMOUNT]: (value) => {
-        if (!value || value <= 0) {
+        if (value === undefined || value === null || value <= 0) {
           return FORM_VALIDATION.TOTAL_AMOUNT_MIN;
         }
         return null;
